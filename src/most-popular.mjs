@@ -8,6 +8,6 @@ const liked = JSON.parse(text)
 
 const most_popular = liked
     .sort((a, b) => a.track.popularity - b.track.popularity)    // sort low to high
-    .pop() // take the last entry
+    .map(item => [item.track.name, item.track.popularity].join(":"))
 
-console.log(most_popular)
+console.log(most_popular.join("\n"))
